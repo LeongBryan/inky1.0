@@ -1,0 +1,23 @@
+level:
+0 - 1x red
+1 - 1x green
+2 - 3x blue
+3 - 5x red
+4 - 5x blue
+5 - 7x red
+6 - 3x red & green
+7 - 3x red & blue
+8 - 4x green & blue
+9 - 3x red & green & blue
+10 - 5x purple
+11 - 3x red & purple
+12 - 3x blue & purple
+13 - 10x green
+14 - 3x teal and blue
+15 - 3x teal and purple
+16 - 3x yellow and red
+17 - 3x yellow and teal
+18 - 2x teal, yellow and purple
+19 - 1x red blue green teal yellow purple
+20 - 3x grey
+21 - 7x grey

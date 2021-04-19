@@ -1,0 +1,38 @@
+# Settings
+
+import pygame as pg
+
+WIDTH = 1200
+HEIGHT = 800
+TITLE = "INKY"
+FPS = 60
+FONT_NAME = "Candles"
+SCREEN = pg.display.set_mode((WIDTH, HEIGHT))
+
+# player attributes
+PLAYER_ACC = 0.9
+PLAYER_FRICTION = -0.15
+
+# define colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+RED = (255, 0, 0)
+DARKRED = (120, 0,0)
+LIGHTRED = (255, 150,150)
+GREEN = (0, 255, 0)
+LIGHTGREEN = (150, 255, 150)
+DARKGREEN = (0, 180, 0)
+BLUE = (0, 0, 255)
+LIGHTBLUE = (150,150,255)
+MAGENTA = (255, 0, 255)
+PINK = (255, 205, 200)
+YELLOW = (255, 255, 0)
+CYAN = (0, 255, 255)
+PURPLE = (128, 0, 128)
+GREY = (100,100,100)
+LIGHTGREY = (200,200,200)
+GOLD = (255, 215, 0)
+LIGHTGOLD = (255, 240, 140)
+
+
+
