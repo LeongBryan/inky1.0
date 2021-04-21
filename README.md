@@ -7,4 +7,5 @@ Still, it's playable with the following steps:
 2. pip install pygame
 3. run main.py (main_initial.py also works, if you're interested in the evolution of the game...)
 
+Some demo gameplay:
 ![alt-text](https://github.com/LeongBryan/inky1.0/blob/master/inky.gif)
