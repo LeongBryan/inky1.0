@@ -29,7 +29,7 @@ class Player(pg.sprite.Sprite):
         self.vx = 0
         self.vy = 0
         
-        self.exp = 0
+        self.exp = 10213
         self.level = 0
         self.shield = 400
         self.powerup = 200
@@ -1247,7 +1247,7 @@ class Game:
         self.running = True
         self.font_name = pg.font.match_font(FONT_NAME)
         self.highscore = 0
-        self.level = 0
+        self.level = 9
         self.all_hits = []      #list of: [(image, pos, size), (image, pos, size)]
         
         # Class Game Graphics
