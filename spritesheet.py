@@ -1,31 +1,44 @@
-# Spritesheet
+"""Utility helpers for sprite sheets."""
+
+from __future__ import annotations
+
+from pathlib import Path
 
 import pygame as pg
-import os
 
-game_folder = os.path.dirname(__file__)
-img_folder = os.path.join(game_folder, "Images")
+IMG_DIR = Path(__file__).resolve().parent / "Images"
 
-class Spritesheet(object):
-    def __init__(self, filename):
-        self.sheet = pg.image.load(os.path.join(img_folder, "paintsheet.png")).convert()
-    
-    def image_at(self, rectangle, colorkey = None):
-        # loads image from x, y, x+offset, y+offset
+
+class Spritesheet:
+    def __init__(self, filename: str) -> None:
+        sheet_path = IMG_DIR / filename
+        self.sheet = pg.image.load(sheet_path).convert()
+
+    def image_at(
+        self,
+        rectangle: tuple[int, int, int, int],
+        colorkey: tuple[int, int, int] | None = None,
+    ) -> pg.Surface:
+        """Return a single sprite clipped from the sheet."""
         rect = pg.Rect(rectangle)
-        image = pg.Surface((50,50)).convert()
+        image = pg.Surface(rect.size).convert()
         image.blit(self.sheet, (0, 0), rect)
         if colorkey is not None:
             image.set_colorkey(colorkey)
         return image
 
-    def images_at(self, rects, colorkey = None):
-        # loads multiple images, supply a list of coordinates
+    def images_at(
+        self,
+        rects: list[tuple[int, int, int, int]],
+        colorkey: tuple[int, int, int] | None = None,
+    ) -> list[pg.Surface]:
         return [self.image_at(rect, colorkey) for rect in rects]
 
-    def load_strip(self, rect, image_count, colorkey = None):
-        # Loads a strip of images and returns them as a list
-        tups = [(rect[0] + rect[2]*x, rect[1], rect[2], rect[3])
-            for x in range(image_count)]
-        
-        return self.images_at(tups, colorkey)
+    def load_strip(
+        self,
+        rect: tuple[int, int, int, int],
+        image_count: int,
+        colorkey: tuple[int, int, int] | None = None,
+    ) -> list[pg.Surface]:
+        clips = [(rect[0] + rect[2] * index, rect[1], rect[2], rect[3]) for index in range(image_count)]
+        return self.images_at(clips, colorkey)
