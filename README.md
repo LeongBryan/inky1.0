@@ -43,6 +43,24 @@ python -m pip install -r requirements.txt
 python main.py
 ```
 
+## Play Online (GitHub Pages)
+This repo now includes a Pages deploy workflow at `.github/workflows/deploy-pages.yml` that builds a browser bundle with `pygbag` and publishes `build/web`.
+
+Expected URL after Pages is enabled:
+- `https://leongbryan.github.io/inky1.0/`
+
+One-time setup in GitHub:
+1. Open your repository settings.
+2. Go to `Pages`.
+3. Set `Source` to `GitHub Actions`.
+4. Push/merge this branch to `main` (or trigger the workflow manually in `Actions`).
+
+Optional local web build:
+```bash
+python -m pip install -r requirements-web.txt
+python -m pygbag --build --ume_block 0 .
+```
+
 ## Controls
 - Move: `WASD` or Arrow Keys
 - Shoot: `Z` / `X` / `C`

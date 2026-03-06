@@ -81,7 +81,12 @@ def parse_leaderboard(path: Path) -> list[tuple[str, int]]:
         return []
 
     entries: list[tuple[str, int]] = []
-    for line in path.read_text(encoding="utf-8").splitlines():
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except OSError:
+        return []
+
+    for line in lines:
         if "," not in line:
             continue
         raw_name, raw_score = line.split(",", 1)
@@ -98,7 +103,11 @@ def parse_leaderboard(path: Path) -> list[tuple[str, int]]:
 
 def write_leaderboard(path: Path, entries: list[tuple[str, int]]) -> None:
     lines = [f"{name}, {score}" for name, score in entries[:5]]
-    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    try:
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    except OSError:
+        # Browser/wasm targets may not have writable local files.
+        return
 
 
 def record_score(entries: list[tuple[str, int]], score: int, name: str = "YOU") -> list[tuple[str, int]]:
