@@ -1,23 +1,16 @@
-level:
-0 - 1x red
-1 - 1x green
-2 - 3x blue
-3 - 5x red
-4 - 5x blue
-5 - 7x red
-6 - 3x red & green
-7 - 3x red & blue
-8 - 4x green & blue
-9 - 3x red & green & blue
-10 - 5x purple
-11 - 3x red & purple
-12 - 3x blue & purple
-13 - 10x green
-14 - 3x teal and blue
-15 - 3x teal and purple
-16 - 3x yellow and red
-17 - 3x yellow and teal
-18 - 2x teal, yellow and purple
-19 - 1x red blue green teal yellow purple
-20 - 3x grey
-21 - 7x grey
+Base wave recipes (used first):
+1 - 2x red
+2 - 2x green
+3 - 3x blue
+4 - 3x red + 1x green
+5 - 2x green + 2x blue
+6 - 2x red + 2x green + 1x blue
+7 - 1x purple + 2x red + 1x blue
+8 - 1x teal + 2x green + 1x blue
+9 - 1x yellow + 2x red + 1x green
+10 - 1x purple + 1x teal + 1x yellow + red/green/blue
+
+After wave 10:
+- Enemy count scales up each wave.
+- Mixed-color enemies appear more often.
+- Every 4th wave adds an extra combo enemy.

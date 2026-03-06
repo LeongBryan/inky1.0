@@ -1,38 +1,63 @@
-# Settings
+"""Core settings for INKY.
 
-import pygame as pg
+This module intentionally has no pygame side effects at import time.
+"""
 
-WIDTH = 1200
-HEIGHT = 800
-TITLE = "INKY"
-FPS = 60
-FONT_NAME = "Candles"
-SCREEN = pg.display.set_mode((WIDTH, HEIGHT))
+from __future__ import annotations
 
-# player attributes
-PLAYER_ACC = 0.9
-PLAYER_FRICTION = -0.15
+from dataclasses import dataclass
+from typing import Final
 
-# define colors
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-RED = (255, 0, 0)
-DARKRED = (120, 0,0)
-LIGHTRED = (255, 150,150)
-GREEN = (0, 255, 0)
-LIGHTGREEN = (150, 255, 150)
-DARKGREEN = (0, 180, 0)
-BLUE = (0, 0, 255)
-LIGHTBLUE = (150,150,255)
-MAGENTA = (255, 0, 255)
-PINK = (255, 205, 200)
-YELLOW = (255, 255, 0)
-CYAN = (0, 255, 255)
-PURPLE = (128, 0, 128)
-GREY = (100,100,100)
-LIGHTGREY = (200,200,200)
-GOLD = (255, 215, 0)
-LIGHTGOLD = (255, 240, 140)
+WIDTH: Final = 1200
+HEIGHT: Final = 800
+TITLE: Final = "INKY: Retro Remix"
+FPS: Final = 60
+FONT_NAME: Final = "freesansbold.ttf"
+
+# Player movement
+PLAYER_ACC: Final = 0.9
+PLAYER_FRICTION: Final = -0.18
+PLAYER_MAX_SPEED: Final = 11
+
+# Gameplay tuning
+MAX_INK: Final = 255
+
+# Basic colors
+WHITE: Final = (255, 255, 255)
+BLACK: Final = (0, 0, 0)
+RED: Final = (255, 72, 72)
+GREEN: Final = (85, 235, 120)
+BLUE: Final = (90, 130, 255)
+PURPLE: Final = (170, 95, 240)
+YELLOW: Final = (250, 220, 95)
+TEAL: Final = (70, 220, 220)
+GREY: Final = (100, 100, 100)
+GOLD: Final = (255, 210, 90)
+
+# UI and background
+BG_DARK: Final = (10, 14, 24)
+BG_MID: Final = (19, 30, 50)
+BG_GRID: Final = (36, 57, 87)
+HUD_PANEL: Final = (22, 34, 58)
+HUD_BORDER: Final = (77, 117, 181)
+
+
+@dataclass(frozen=True)
+class GamePalette:
+    bg_dark: tuple[int, int, int] = BG_DARK
+    bg_mid: tuple[int, int, int] = BG_MID
+    bg_grid: tuple[int, int, int] = BG_GRID
+    hud_panel: tuple[int, int, int] = HUD_PANEL
+    hud_border: tuple[int, int, int] = HUD_BORDER
+    red: tuple[int, int, int] = RED
+    green: tuple[int, int, int] = GREEN
+    blue: tuple[int, int, int] = BLUE
+    purple: tuple[int, int, int] = PURPLE
+    yellow: tuple[int, int, int] = YELLOW
+    teal: tuple[int, int, int] = TEAL
+
+
+PALETTE: Final = GamePalette()
 
 
 

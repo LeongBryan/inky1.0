@@ -1,10 +1,56 @@
-Initial pygame project to learn coding.
-Sadly, this was soon abandoned for a larger Unity game, which is published at Kongregate here: 
+# INKY 1.0 (Retro Remix)
 
-https://www.kongregate.com/games/BleongMusic/inky
+A modernized pass on your original Pygame learning project.
 
-Still, it's playable with the following steps:
+The game keeps the same spirit: shoot RGB ink at moving blocks to discover and complete their hidden color combinations. The codebase is now state-driven, data-driven for waves, and easier to extend.
 
-1. git clone https://github.com/LeongBryan/inky1.0.git
-2. pip install pygame
-3. run main.py (main_initial.py also works, if you're interested in the evolution of the game...)
+## Original vs Remix
+<table>
+  <tr>
+    <th>Original (INKY 1.0)</th>
+    <th>Retro Remix</th>
+  </tr>
+  <tr>
+    <td><img src="inky.gif" alt="Original INKY gameplay" width="460" /></td>
+    <td><img src="inky_remix.gif" alt="Retro Remix gameplay" width="460" /></td>
+  </tr>
+</table>
+
+## Highlights
+- Retro arcade presentation: scrolling grid, scanlines, chunky HUD, and wave overlays
+- Cleaner architecture: explicit game states (`title`, `playing`, `wave_clear`, `game_over`)
+- Data-driven enemy wave progression (instead of long conditional chains)
+- Preserved RGB weapon identity (`Z` red burst, `X` bouncing green, `C` spinning blue)
+- Wave progression upgrades:
+  - Multi-shot unlocks (for the same ink cost) at higher waves
+  - Player shot damage scales with wave
+  - Enemy counts scale with wave
+- Sustained pacing upgrades:
+  - Faster passive ink regeneration
+  - Higher potion drop rate
+- Blue projectile visuals now use a circular energy shot
+- Enemy spawn safety between waves (prevents spawning on top of player)
+- HUD panel fades when enemies move behind it for better readability
+- Basic persistent leaderboard (`leaderboard.txt`)
+
+## Requirements
+- Python 3.11+
+- `pygame` 2.5+
+
+## Run
+```bash
+python -m pip install -r requirements.txt
+python main.py
+```
+
+## Controls
+- Move: `WASD` or Arrow Keys
+- Shoot: `Z` / `X` / `C`
+- Pause: `P`
+- Restart run: `R`
+- Confirm / Continue: `Enter`
+- Quit: `Esc`
+
+## Notes
+- Legacy files like `main_initial.py` are kept for historical reference.
+- If an image asset is missing, the game now falls back to generated placeholders instead of crashing.
