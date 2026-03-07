@@ -1,8 +1,7 @@
 # INKY 1.0 (Retro Remix)
+ Playable at: [https://leongbryan.github.io/inky1.0/](https://leongbryan.github.io/inky1.0/)
 
-A modernized pass on your original Pygame learning project.
-
-The game keeps the same spirit: shoot RGB ink at moving blocks to discover and complete their hidden color combinations. The codebase is now state-driven, data-driven for waves, and easier to extend.
+A modernized pass on your original Pygame learning project. The codebase is now state-driven, data-driven for waves, and easier to extend.
 
 ## Original vs Remix
 <table>
