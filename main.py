@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import random
 from dataclasses import dataclass
 from pathlib import Path
@@ -1084,20 +1085,22 @@ class Game:
         self.screen.blit(self.scanlines, (0, 0))
         pg.display.flip()
 
-    def run(self) -> None:
+    async def run(self) -> None:
         while self.running:
             self.dt_seconds = self.clock.tick(FPS) / 1000.0
             self.handle_events()
             self.update()
             self.draw()
+            # Required for browser/wasm targets so the event loop can yield.
+            await asyncio.sleep(0)
 
         pg.quit()
 
 
-def main() -> None:
+async def main() -> None:
     game = Game()
-    game.run()
+    await game.run()
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
